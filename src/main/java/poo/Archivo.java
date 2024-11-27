@@ -4,34 +4,12 @@ import java.io.*;
 
 public class Archivo {
 
-    public static void writeScores(Integer score, Integer i) {
-
-        OutputStream os = null;
-        OutputStreamWriter osw = null;
-        BufferedWriter bw = null;
-
-        try {
-
-            os = new FileOutputStream("ArchivoDePuntos.txt", true);
-            osw = new OutputStreamWriter(os);
-            bw = new BufferedWriter(osw);
-
-            bw.write("Puntuacion del intento " + i + ":");
+    public static void writeScores(String playerName, Integer score) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("ArchivoDePuntos.txt", true))) {
+            bw.write("Jugador: " + playerName + ", Puntuación: " + score);
             bw.newLine();
-            bw.write(score + "\n");
-
-        } catch (Exception e) {
-
-            System.out.println(e);
-
-        } finally {
-
-            try {
-                bw.close();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
-
     }
 }
