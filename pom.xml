@@ -145,10 +145,6 @@
           </reportSet>
         </reportSets>
       </plugin>
-
-
-
-
     </plugins>
   </reporting>
 
@@ -189,9 +185,6 @@
             </execution>
           </executions>
         </plugin>
-
-
-
         <plugin>
           <groupId>org.owasp</groupId>
           <artifactId>dependency-check-maven</artifactId>
@@ -204,8 +197,6 @@
             </execution>
           </executions>
         </plugin>
-
-
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
@@ -225,10 +216,6 @@
             </execution>
           </executions>
         </plugin>
-
-
-
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
@@ -248,11 +235,6 @@
             </execution>
           </executions>
         </plugin>
-
-
-
-
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
@@ -265,13 +247,6 @@
             </execution>
           </executions>
         </plugin>
-
-
-
-
-
-
-
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.4.0</version>
@@ -334,7 +309,6 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M7</version>
       </plugin>
-
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
