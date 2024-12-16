@@ -1,5 +1,8 @@
 package poo.scenario;
 
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import poo.Archivo;
 import poo.play_button.PlayButton;
 import poo.snake.Snake;
@@ -72,27 +75,94 @@ public class Scenario {
         // Limpiar la escena antes de mostrar la pantalla inicial
         cleanScene();
 
-        // Crear la pantalla para ingresar el nickname
+        // Crear un StackPane para centrar el VBox en toda la ventana
+        StackPane root = new StackPane();
+        root.setPrefSize(880, 640); // Tamaño de la ventana
+        root.setStyle("-fx-background-color: #f8ecb4;"); // Fondo claro
+
+        // Crear el VBox para la pantalla del nickname
         VBox nicknamePane = new VBox();
         nicknamePane.setAlignment(Pos.CENTER);
-        nicknamePane.setSpacing(20);
+        nicknamePane.setSpacing(20); // Ajusta el espaciado entre elementos
 
+        // Crear los elementos de la interfaz
         Text prompt = new Text("Ingrese su nickname:");
+        prompt.setStyle(
+                "-fx-font-family: 'Georgia'; " +           // Fuente estilizada
+                        "-fx-font-size: 26px; " +                 // Tamaño del texto
+                        "-fx-font-weight: bold; " +               // Negrita
+                        "-fx-fill: linear-gradient(to bottom, #000000, #1B5E20); " + // Degradado verde oscuro
+                        "-fx-effect: dropshadow(gaussian, lightgray, 8, 0.5, 2, 2); " // Sombra suave
+        );
+
         TextField nicknameField = new TextField();
         nicknameField.setPromptText("Nickname");
         nicknameField.setMaxWidth(300);
+        nicknameField.setStyle("-fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 5 10;");
 
         Button continueButton = new Button("Continuar");
+        continueButton.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+
+// Eliminar el efecto del foco (rectángulo) desde el estilo en línea
+        continueButton.setStyle(
+                "-fx-background-color: linear-gradient(#4CAF50, #2E7D32); " +
+                        "-fx-text-fill: white; " +
+                        "-fx-padding: 10 20; " +
+                        "-fx-background-radius: 20; " +
+                        "-fx-border-color: transparent; " +
+                        "-fx-focus-color: transparent; " +
+                        "-fx-faint-focus-color: transparent;"
+        );
+
+// Desactivar programáticamente el foco
+        continueButton.setFocusTraversable(false);
+
+// Efecto hover (cuando el ratón pasa sobre el botón)
+        continueButton.setOnMouseEntered(e -> continueButton.setStyle(
+                "-fx-background-color: linear-gradient(#a48def, #3fd4e6); " +
+                        "-fx-text-fill: white; " +
+                        "-fx-padding: 10 20; " +
+                        "-fx-background-radius: 20; " +
+                        "-fx-border-color: transparent; " +
+                        "-fx-focus-color: transparent; " +
+                        "-fx-faint-focus-color: transparent;"
+        ));
+        continueButton.setOnMouseExited(e -> continueButton.setStyle(
+                "-fx-background-color: linear-gradient(#4CAF50, #2E7D32); " +
+                        "-fx-text-fill: white; " +
+                        "-fx-padding: 10 20; " +
+                        "-fx-background-radius: 20; " +
+                        "-fx-border-color: transparent; " +
+                        "-fx-focus-color: transparent; " +
+                        "-fx-faint-focus-color: transparent;"
+        ));
+
+// Acción del botón
         continueButton.setOnAction(e -> {
-            this.nickname = nicknameField.getText();
+            this.nickname = nicknameField.getText().trim();
             if (!nickname.isEmpty()) {
-                onNicknameEntered.run(); // Mostrar el PlayButton
-                this.container.getChildren().remove(nicknamePane);
+                onNicknameEntered.run(); // Llamar a la acción proporcionada
+                this.container.getChildren().remove(root);
             }
         });
 
+
+        continueButton.setOnAction(e -> {
+            this.nickname = nicknameField.getText().trim();
+            if (!nickname.isEmpty()) {
+                onNicknameEntered.run(); // Llamar a la acción proporcionada
+                this.container.getChildren().remove(root);
+            }
+        });
+
+        // Agregar elementos al VBox
         nicknamePane.getChildren().addAll(prompt, nicknameField, continueButton);
-        this.container.getChildren().add(nicknamePane);
+
+        // Agregar el VBox al StackPane
+        root.getChildren().add(nicknamePane);
+
+        // Reemplazar el contenido actual del contenedor con la nueva vista
+        this.container.getChildren().add(root);
     }
 
     /**

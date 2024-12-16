@@ -1,92 +1,189 @@
 package poo.try_again_button;
 
+import javafx.scene.text.FontWeight;
 import poo.config.Config;
 import poo.Archivo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.paint.CycleMethod;
 
 import java.util.List;
 
-/**
- * @class TryAgainButton
- * @brief Clase que representa un botón de "Reintentar" al finalizar el juego.
- * Esta clase muestra una pantalla con el mensaje "Fin del juego",
- * la puntuación actual del jugador y las mejores puntuaciones.
- * Además, permite al jugador reintentar el juego con el botón "Reintentar".
- */
 public class TryAgainButton extends StackPane {
 
-    /**
-     * @brief Constructor de la clase TryAgainButton.
-     * Crea la interfaz gráfica que se muestra cuando el jugador finaliza el juego.
-     * Muestra el fondo, la puntuación, el mensaje de fin de juego y las mejores puntuaciones,
-     * junto con un botón para reintentar el juego.
-     *
-     * @param buttonAction Acción a ejecutar cuando se hace clic en el botón de reintentar.
-     */
     public TryAgainButton(EventHandler<ActionEvent> buttonAction) {
 
-        // Fondo blanco detrás del Scoreboard
-        // Se crea un rectángulo blanco con bordes redondeados que sirve de fondo.
-        Rectangle background = new Rectangle(Config.width - 100, Config.height - 200);
-        background.setFill(Paint.valueOf("WHITE"));
-        background.setArcWidth(20);
-        background.setArcHeight(20);
+        // Fondo principal que ocupa TODA la ventana
+        this.setPrefSize(Config.width, Config.height);
+        this.setBackground(new Background(new BackgroundFill(
+                new LinearGradient(0, 0, 0, 1, true, null,
+                        new Stop(0, Color.web("#f8ecb4")),
+                        new Stop(1, Color.web("#f8ecb4"))), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        // Contenedor principal que organiza los elementos dentro del TryAgainButton
+        // Fondo blanco centrado
+        Rectangle background = new Rectangle(Config.width * 0.8, Config.height * 0.8);
+        background.setArcWidth(30);
+        background.setArcHeight(30);
+        background.setFill(Color.WHITE);
+        background.setStroke(Color.LIGHTGRAY);
+        background.setStrokeWidth(1.5);
+        background.setEffect(new javafx.scene.effect.DropShadow(10, Color.GRAY));
+
+        // Contenedor principal centrado
         VBox content = new VBox();
         content.setAlignment(Pos.CENTER);
         content.setSpacing(20);
+        content.setPrefSize(Config.width * 0.8, Config.height * 0.8);
+        content.setPadding(new Insets(20));
 
-        // Texto de fin del juego
+        // Encabezado "Fin del Juego" mejorado
         Label gameOver = new Label("Fin del juego");
-        gameOver.setFont(Font.font(100));
-        gameOver.setTextFill(Color.BLACK);
+        gameOver.setFont(Font.font("Georgia", FontWeight.BOLD, 90));
+        gameOver.setTextFill(new LinearGradient(0, 0, 0, 1, true, CycleMethod.NO_CYCLE,
+                new Stop(0, Color.web("#FF4E50")), // Degradado de rojo claro
+                new Stop(1, Color.web("#F9D423")))); // Degradado hacia amarillo claro
 
-        // Texto que muestra la puntuación actual
-        Label scoreText = new Label("Puntuacion: " + Config.score);
-        scoreText.setFont(Font.font("Arial", 40));
+        // Efecto sombra para darle profundidad
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setColor(Color.GRAY);
+        dropShadow.setRadius(10);
+        dropShadow.setOffsetX(3);
+        dropShadow.setOffsetY(3);
+        gameOver.setEffect(dropShadow);
 
-        // Obtener las mejores puntuaciones desde un archivo
-        List<String> topScores = Archivo.getTopScores(5);
+        // Opcional: Agregar un stroke (borde) alrededor del texto
+        gameOver.setStyle("-fx-stroke: black; -fx-stroke-width: 1px; -fx-stroke-type: outside;");
 
-        // Contenedor para mostrar las mejores puntuaciones
-        VBox scoreboard = new VBox();
-        scoreboard.setSpacing(10);
+        // Texto "Puntuación" mejorado
+        Label scoreText = new Label("Puntuación: " + Config.score);
+        scoreText.setFont(Font.font("Verdana", FontWeight.BOLD, 40));
+
+        // Scoreboard con estilo tabla
+        VBox scoreboardContainer = new VBox();
+        scoreboardContainer.setAlignment(Pos.CENTER);
+        scoreboardContainer.setSpacing(10);
+        scoreboardContainer.setStyle("-fx-background-color: #FFFFFF; " +
+                "-fx-border-color: #BFC9D9; -fx-border-radius: 10; " +
+                "-fx-background-radius: 10;");
+        scoreboardContainer.setPadding(new Insets(15));
+
+        Text scoreboardTitle = new Text("🏆 Mejores Puntuaciones 🏆");
+        scoreboardTitle.setFont(Font.font("Arial", 30));
+        scoreboardTitle.setFill(Color.web("#335C81"));
+
+        GridPane scoreboard = new GridPane();
         scoreboard.setAlignment(Pos.CENTER);
+        scoreboard.setHgap(60);
+        scoreboard.setVgap(10);
 
-        // Título del scoreboard
-        Text scoreboardTitle = new Text("Mejores Puntuaciones");
-        scoreboardTitle.setFont(Font.font("Arial", 40));
-        scoreboard.getChildren().add(scoreboardTitle);
+// Encabezados estilizados
+        Text rankHeader = new Text("Posición");
+        rankHeader.setFont(Font.font("Georgia", FontWeight.BOLD, 22));
+        rankHeader.setFill(Color.web("#3D5A80"));
 
-        // Añadir las mejores puntuaciones al scoreboard
+        Text playerHeader = new Text("Jugador");
+        playerHeader.setFont(Font.font("Georgia", FontWeight.BOLD, 22));
+        playerHeader.setFill(Color.web("#3D5A80"));
+
+        Text scoreHeader = new Text("Puntuación");
+        scoreHeader.setFont(Font.font("Georgia", FontWeight.BOLD, 22));
+        scoreHeader.setFill(Color.web("#3D5A80"));
+
+// Agregar los encabezados a la tabla
+        scoreboard.add(rankHeader, 0, 0);
+        scoreboard.add(playerHeader, 1, 0);
+        scoreboard.add(scoreHeader, 2, 0);
+
+// Obtener y mostrar las mejores puntuaciones
+        List<String> topScores = Archivo.getTopScores(5);
+        int rank = 1;
         for (String entry : topScores) {
-            Text scoreEntry = new Text(entry);
-            scoreEntry.setFont(Font.font("Arial", 20));
-            scoreboard.getChildren().add(scoreEntry);
+            String[] parts = entry.split(":"); // Dividir por ":"
+            String playerName = parts[0].trim(); // Nombre del jugador
+            String playerScore = parts[1].trim(); // Puntuación
+
+            // Texto estilizado para la posición
+            Text rankText = new Text(String.valueOf(rank));
+            rankText.setFont(Font.font("Verdana", FontWeight.NORMAL, 18));
+            rankText.setFill(Color.web("#606F7B"));
+
+            // Texto estilizado para el nombre del jugador
+            Text playerText = new Text(playerName);
+            playerText.setFont(Font.font("Verdana", FontWeight.NORMAL, 18));
+            playerText.setFill(Color.web("#333333"));
+
+            // Texto estilizado para la puntuación
+            Text scoreTextplayed = new Text(playerScore);
+            scoreTextplayed.setFont(Font.font("Verdana", FontWeight.NORMAL, 18));
+            scoreTextplayed.setFill(Color.web("#333333"));
+
+            // Añadir las filas a la tabla
+            scoreboard.add(rankText, 0, rank);
+            scoreboard.add(playerText, 1, rank);
+            scoreboard.add(scoreTextplayed, 2, rank);
+            rank++;
         }
 
-        // Botón para reintentar el juego
+        scoreboardContainer.getChildren().addAll(scoreboardTitle, scoreboard);
+
+        // Botón Reintentar con estilo mejorado
         Button tryAgainButton = new Button("Reintentar");
-        tryAgainButton.setFont(Font.font(40));
+        tryAgainButton.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+
+// Eliminar el efecto del foco (rectángulo) desde el estilo en línea
+        tryAgainButton.setStyle(
+                "-fx-background-color: linear-gradient(#4CAF50, #2E7D32); " +
+                        "-fx-text-fill: white; " +
+                        "-fx-padding: 10 20; " +
+                        "-fx-background-radius: 20; " +
+                        "-fx-border-color: transparent; " +
+                        "-fx-focus-color: transparent; " +
+                        "-fx-faint-focus-color: transparent;"
+        );
+
+// Desactivar programáticamente el foco
+        tryAgainButton.setFocusTraversable(false);
+
+// Efecto hover (cuando el ratón pasa sobre el botón)
+        tryAgainButton.setOnMouseEntered(e -> tryAgainButton.setStyle(
+                "-fx-background-color: linear-gradient(#a48def, #3fd4e6); " +
+                        "-fx-text-fill: white; " +
+                        "-fx-padding: 10 20; " +
+                        "-fx-background-radius: 20; " +
+                        "-fx-border-color: transparent; " +
+                        "-fx-focus-color: transparent; " +
+                        "-fx-faint-focus-color: transparent;"
+        ));
+        tryAgainButton.setOnMouseExited(e -> tryAgainButton.setStyle(
+                "-fx-background-color: linear-gradient(#4CAF50, #2E7D32); " +
+                        "-fx-text-fill: white; " +
+                        "-fx-padding: 10 20; " +
+                        "-fx-background-radius: 20; " +
+                        "-fx-border-color: transparent; " +
+                        "-fx-focus-color: transparent; " +
+                        "-fx-faint-focus-color: transparent;"
+        ));
+
+// Configurar la acción del botón
         tryAgainButton.setOnAction(buttonAction);
 
-        // Añadir todos los elementos a la interfaz
-        content.getChildren().addAll(gameOver, scoreText, scoreboard, tryAgainButton);
+        // Agregar todos los elementos al VBox
+        content.getChildren().addAll(gameOver, scoreText, scoreboardContainer, tryAgainButton);
 
-        // Añadir todo el contenido y el fondo al StackPane
+        // Añadir fondo y contenido al StackPane
         this.getChildren().addAll(background, content);
-        this.setAlignment(Pos.CENTER);
+        this.setAlignment(Pos.CENTER); // Centrado absoluto
     }
 }

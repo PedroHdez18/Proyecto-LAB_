@@ -1,21 +1,25 @@
 package poo.food.pineapple;
 
-import poo.canvas_utils_square.CanvasUtilsSquares;
 import poo.config.Config;
 import poo.food.Food;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.paint.Color;
+import javafx.scene.control.Label;
+import javafx.scene.text.Font;
 
 /**
- * Clase para representar la comida Pineapple (Piña).
+ * @class Pineapple
+ * @brief Representa una comida tipo "piña" en el juego de la serpiente utilizando un emoji.
  */
 public class Pineapple extends Food {
 
-    private Canvas pineapple;
+    /**
+     * @brief Representa la piña utilizando un Label con emoji.
+     */
+    private Label pineapple;
 
     /**
-     * Constructor de la clase Pineapple.
-     * Inicializa la comida y establece una posición aleatoria.
+     * @brief Constructor de la clase `Pineapple`.
+     *
+     * Inicializa la piña gráficamente como un emoji y le asigna una posición aleatoria.
      */
     public Pineapple() {
         creatingFood();
@@ -23,52 +27,55 @@ public class Pineapple extends Food {
     }
 
     /**
-     * Método para crear la comida Pineapple.
-     * Construye un cuadrado amarillo que representa la piña.
+     * @brief Crea la piña utilizando un Label con emoji.
+     *
+     * Este método establece el emoji de la piña y su apariencia visual.
      */
     @Override
     protected void creatingFood() {
-        this.pineapple = CanvasUtilsSquares.buildingSquare(Color.YELLOW);
+        this.pineapple = new Label("🍍"); // Emoji de piña
+        this.pineapple.setFont(Font.font("Arial", 30)); // Tamaño grande del emoji
+        this.pineapple.setStyle(
+                "-fx-text-fill: yellow; " + // Intenta colorear el emoji (según compatibilidad)
+                        "-fx-effect: dropshadow(gaussian, #F9A825, 10, 0.5, 0, 0);" // Sombra amarilla suave
+        );
+        this.pineapple.setOpacity(1.0); // Asegura opacidad total
     }
 
     /**
-     * Método para establecer una posición aleatoria para la piña.
-     * Utiliza valores de configuración para determinar los límites de la posición.
+     * @brief Asigna una posición aleatoria a la piña dentro del área del juego.
      */
     public void setRandomPosition() {
-        this.pineapple
-                .setTranslateX(randomNumbers(Config.oneQuarterWidthDown, Config.oneQuarterWidthUp - Config.squareSize));
-        this.pineapple.setTranslateY(
-                randomNumbers(Config.oneQuarterfHeightUp, Config.oneQuarterfHeightDown - Config.squareSize));
+        this.pineapple.setTranslateX(randomNumbers(Config.oneQuarterWidthDown, Config.oneQuarterWidthUp - Config.squareSize));
+        this.pineapple.setTranslateY(randomNumbers(Config.oneQuarterfHeightDown, Config.oneQuarterfHeightUp - Config.squareSize));
     }
 
     /**
-     * Método para obtener el objeto Canvas que representa la piña.
+     * @brief Obtiene el objeto Label que representa la piña.
      *
-     * @return el objeto Canvas de la piña.
+     * @return El Label con el emoji de la piña.
      */
-    public Canvas getPineapple() {
+    public Label getPineapple() {
         return pineapple;
     }
 
     /**
-     * Método para obtener la posición X de la piña.
+     * @brief Obtiene la posición X actual de la piña.
      *
-     * @return la posición X como un entero.
+     * @return Un valor entero que representa la posición X de la piña.
      */
     @Override
     public Integer getPosicionX() {
-        return (int) this.pineapple.getTranslateX(); // Obtiene la posición X y hace el Casting de double a int
+        return (int) this.pineapple.getTranslateX();
     }
 
     /**
-     * Método para obtener la posición Y de la piña.
+     * @brief Obtiene la posición Y actual de la piña.
      *
-     * @return la posición Y como un entero.
+     * @return Un valor entero que representa la posición Y de la piña.
      */
     @Override
     public Integer getPosicionY() {
         return (int) this.pineapple.getTranslateY();
     }
-
 }

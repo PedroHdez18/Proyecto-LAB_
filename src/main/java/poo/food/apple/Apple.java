@@ -1,30 +1,25 @@
 package poo.food.apple;
 
-import poo.canvas_utils_square.CanvasUtilsSquares;
 import poo.config.Config;
 import poo.food.Food;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.paint.Color;
+import javafx.scene.control.Label;
+import javafx.scene.text.Font;
 
 /**
  * @class Apple
- * @brief Representa una comida tipo "manzana" en el juego de la serpiente.
- *
- * Esta clase extiende la clase base `Food` y proporciona funcionalidad específica
- * para las manzanas, como su creación, color y posición aleatoria dentro del área del juego.
+ * @brief Representa una comida tipo "manzana" en el juego de la serpiente utilizando un emoji.
  */
 public class Apple extends Food {
 
     /**
-     * @brief Representa la manzana como un objeto Canvas.
+     * @brief Representa la manzana utilizando un Label con emoji.
      */
-    private Canvas apple;
+    private Label apple;
 
     /**
      * @brief Constructor de la clase `Apple`.
      *
-     * Inicializa una manzana llamando a los métodos para crearla gráficamente y
-     * establecer su posición inicial aleatoria.
+     * Inicializa la manzana gráficamente como un emoji y le asigna una posición aleatoria.
      */
     public Apple() {
         creatingFood();
@@ -32,20 +27,23 @@ public class Apple extends Food {
     }
 
     /**
-     * @brief Crea gráficamente la manzana como un cuadrado rojo.
+     * @brief Crea la manzana utilizando un Label con emoji.
      *
-     * Este método utiliza la utilidad `CanvasUtilsSquares` para generar
-     * un Canvas de color rojo que representa la manzana.
+     * Este método establece el emoji de la manzana y su apariencia visual.
      */
+    @Override
     protected void creatingFood() {
-        this.apple = CanvasUtilsSquares.buildingSquare(Color.RED);
+        this.apple = new Label("🍎"); // Emoji de manzana
+        this.apple.setFont(Font.font("Arial", 30)); // Tamaño grande del emoji
+        this.apple.setStyle(
+                "-fx-text-fill: red; " + // Intenta colorear el emoji (según compatibilidad del sistema)
+                        "-fx-effect: dropshadow(gaussian, #000000, 10, 0.5, 0, 0);" // Sombra roja suave
+        );
+        this.apple.setOpacity(1.0); // Asegura opacidad total
     }
 
     /**
      * @brief Asigna una posición aleatoria a la manzana dentro del área del juego.
-     *
-     * Calcula una posición aleatoria dentro de los límites del área de juego definida
-     * por la configuración (`Config`) y aplica esas coordenadas al Canvas de la manzana.
      */
     public void setRandomPosition() {
         this.apple.setTranslateX(randomNumbers(0, Config.width - Config.squareSize));
@@ -53,28 +51,28 @@ public class Apple extends Food {
     }
 
     /**
-     * @brief Obtiene el objeto `Canvas` que representa gráficamente la manzana.
+     * @brief Obtiene el objeto Label que representa la manzana.
      *
-     * @return Un objeto Canvas con la representación visual de la manzana.
+     * @return El Label con el emoji de la manzana.
      */
-    public Canvas getApple() {
+    public Label getApple() {
         return apple;
     }
 
     /**
      * @brief Obtiene la posición X actual de la manzana.
      *
-     * @return Un valor entero que representa la posición X de la manzana en el área del juego.
+     * @return Un valor entero que representa la posición X de la manzana.
      */
     @Override
     public Integer getPosicionX() {
-        return (int) this.apple.getTranslateX(); // Obtiene la posición X y hace el casting de double a int
+        return (int) this.apple.getTranslateX();
     }
 
     /**
      * @brief Obtiene la posición Y actual de la manzana.
      *
-     * @return Un valor entero que representa la posición Y de la manzana en el área del juego.
+     * @return Un valor entero que representa la posición Y de la manzana.
      */
     @Override
     public Integer getPosicionY() {
