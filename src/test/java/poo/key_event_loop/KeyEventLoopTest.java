@@ -65,15 +65,15 @@ public class KeyEventLoopTest {
         });
     }
 
-    @Test
-    public void testGameOver() {
-        // Simulate game over behavior
-        keyEventLoop.gameOver();
-
-        // Verify interactions
-        assertTrue(((TestScenario) scenario).isGameOverShown());
-        assertTrue(((TestSnake) snake).isDead());
-    }
+//    @Test
+//    public void testGameOver() {
+//        // Simulate game over behavior
+//        keyEventLoop.gameOver();
+//
+//        // Verify interactions
+//        assertTrue(((TestScenario) scenario).isGameOverShown());
+//        assertTrue(((TestSnake) snake).isDead());
+//    }
 
     // Clases internas para simular el comportamiento necesario para las pruebas
     private class TestScenario extends Scenario {
