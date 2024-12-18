@@ -16,32 +16,32 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ArchivoTest {
 
-//    private static final String FILE_NAME = "ArchivoDePuntos.txt";
-//
-//    @BeforeEach
-//    void setUp() throws IOException {
-//        // Ensure the file is empty before each test
-//        Files.deleteIfExists(Paths.get(FILE_NAME));
-//        Files.createFile(Paths.get(FILE_NAME));
-//    }
-//
-//    @AfterEach
-//    void tearDown() throws IOException {
-//        // Clean up the file after each test
-//        Files.deleteIfExists(Paths.get(FILE_NAME));
-//    }
-//
-//    @Test
-//    void testWriteScore() throws IOException {
-//        Archivo.writeScore("Player1", 100);
-//        Archivo.writeScore("Player2", 200);
-//
-//        List<String> lines = Files.readAllLines(Path.of(FILE_NAME));
-//
-//        assertEquals(2, lines.size());
-//        assertEquals("Player1: 100", lines.get(0));
-//        assertEquals("Player2: 200", lines.get(1));
-//    }
+    private static final String FILE_NAME = "ArchivoDePuntos.txt";
+
+    @BeforeEach
+    void setUp() throws IOException {
+        // Ensure the file is empty before each test
+        Files.deleteIfExists(Paths.get(FILE_NAME));
+        Files.createFile(Paths.get(FILE_NAME));
+    }
+
+    @AfterEach
+    void tearDown() throws IOException {
+        // Clean up the file after each test
+        Files.deleteIfExists(Paths.get(FILE_NAME));
+    }
+
+    @Test
+    void testWriteScore() throws IOException {
+        Archivo.writeScore("Player1", 100);
+        Archivo.writeScore("Player2", 200);
+
+        List<String> lines = Files.readAllLines(Path.of(FILE_NAME));
+
+        assertEquals(2, lines.size());
+        assertEquals("Player1: 100", lines.get(0));
+        assertEquals("Player2: 200", lines.get(1));
+    }
 //
 //    @Test
 //    void testGetTopScores() throws IOException {
