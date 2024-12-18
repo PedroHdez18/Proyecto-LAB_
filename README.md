@@ -64,16 +64,25 @@ Este proyecto fue desarrollado utilizando el editor de código Visual Studio Cod
 ## SonarQube :
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=alert_status)]
-    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_)
+    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_&branch=main)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=bugs)]
-    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_)
+    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_&branch=main)
 
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=duplicated_lines_density)]
-    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_)
+    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_&branch=main)
 
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=security_rating)]
-    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_)
+    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_&branch=main)
 
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=vulnerabilities)]
-    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_)
+    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_&branch=main)
+
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=ncloc)]
+    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_&branch=main)
+
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=reliability_rating)]
+    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_&branch=main)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=sqale_rating)]
+    (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_&branch=main)
