@@ -71,3 +71,5 @@ Este proyecto fue desarrollado utilizando el editor de código Visual Studio Cod
 
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-dark.svg)]
     (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_)
+
+https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=alert_status
