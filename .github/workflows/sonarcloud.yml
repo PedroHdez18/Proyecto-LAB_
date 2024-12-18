@@ -32,7 +32,7 @@ jobs:
             ${{ runner.os }}-m2
 
       - name: Build and test with Maven
-        run: mvn clean verify
+        run: mvn clean test jacoco:report
 
       - name: SonarCloud Scan
         env:
@@ -53,4 +53,4 @@ jobs:
         run: export DISPLAY=:99
 
       - name: Build and test with Maven
-        run: mvn clean verify
+        run: mvn clean test jacoco:report
