@@ -63,5 +63,5 @@ Este proyecto fue desarrollado utilizando el editor de código Visual Studio Cod
 
 ## SonarQube :
 
-* [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=alert_status)]
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=alert_status)]
     (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_)
