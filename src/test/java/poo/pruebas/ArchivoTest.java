@@ -1,7 +1,8 @@
-package poo;
+package poo.pruebas;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import poo.Archivo;
 
 public class ArchivoTest {
 
