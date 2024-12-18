@@ -19,13 +19,13 @@ public class ScenarioTest extends ApplicationTest {
     private Scenario scenario;
     private boolean gameStarted;
 
-    @Override
-    public void start(Stage stage) {
-        Snake snake = new TestSnake();
-        Apple apple = new TestApple();
-        Pineapple pineapple = new TestPineapple();
-        scenario = new Scenario(stage, snake, apple, pineapple);
-    }
+//    @Override
+//    public void start(Stage stage) {
+//        Snake snake = new TestSnake();
+//        Apple apple = new TestApple();
+//        Pineapple pineapple = new TestPineapple();
+//        scenario = new Scenario(stage, snake, apple, pineapple);
+//    }
 
     @Test
     public void testNicknamePrompt() {
@@ -62,16 +62,16 @@ public class ScenarioTest extends ApplicationTest {
         assertTrue(gameStarted);
     }
 
-    // Inner classes for test purposes
-    private class TestSnake extends Snake {
-        // Implement necessary methods for testing
-    }
+//    // Inner classes for test purposes
+//    private class TestSnake extends Snake {
+//        // Implement necessary methods for testing
+//    }
 
-    private class TestApple extends Apple {
-        // Implement necessary methods for testing
-    }
-
-    private class TestPineapple extends Pineapple {
-        // Implement necessary methods for testing
-    }
+//    private class TestApple extends Apple {
+//        // Implement necessary methods for testing
+//    }
+//
+//    private class TestPineapple extends Pineapple {
+//        // Implement necessary methods for testing
+//    }
 }
