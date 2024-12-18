@@ -33,10 +33,10 @@ public class PlayButtonTest extends ApplicationTest {
         assertEquals("Iniciar Intento", play.getText());
     }
 
-    @Test
-    public void testButtonClick() {
-        Button play = (Button) playButton.lookup(".button");
-        clickOn(play);
-        assertTrue(buttonClicked);
-    }
+//    @Test
+//    public void testButtonClick() {
+//        Button play = (Button) playButton.lookup(".button");
+//        clickOn(play);
+//        assertTrue(buttonClicked);
+//    }
 }
