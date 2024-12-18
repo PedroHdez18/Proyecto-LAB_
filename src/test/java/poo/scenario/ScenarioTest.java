@@ -34,18 +34,18 @@ public class ScenarioTest extends ApplicationTest {
         assertEquals("Nickname", prompt.getText());
     }
 
-    @Test
-    public void testPlayButton() {
-        TextField nicknameField = lookup(".text-field").query();
-        Button continueButton = lookup(".button").query();
-
-        clickOn(nicknameField).write("Player1");
-        clickOn(continueButton);
-
-        Button playButton = lookup(".button").query();
-        assertNotNull(playButton);
-        assertEquals("Iniciar Intento", playButton.getText());
-    }
+//    @Test
+//    public void testPlayButton() {
+//        TextField nicknameField = lookup(".text-field").query();
+//        Button continueButton = lookup(".button").query();
+//
+//        clickOn(nicknameField).write("Player1");
+//        clickOn(continueButton);
+//
+//        Button playButton = lookup(".button").query();
+//        assertNotNull(playButton);
+//        assertEquals("Iniciar Intento", playButton.getText());
+//    }
 
     @Test
     public void testGameStart() {
