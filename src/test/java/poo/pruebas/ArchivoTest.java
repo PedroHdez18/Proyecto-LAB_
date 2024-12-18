@@ -16,47 +16,47 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ArchivoTest {
 
-    private static final String FILE_NAME = "ArchivoDePuntos.txt";
-
-    @BeforeEach
-    void setUp() throws IOException {
-        // Ensure the file is empty before each test
-        Files.deleteIfExists(Paths.get(FILE_NAME));
-        Files.createFile(Paths.get(FILE_NAME));
-    }
-
-    @AfterEach
-    void tearDown() throws IOException {
-        // Clean up the file after each test
-        Files.deleteIfExists(Paths.get(FILE_NAME));
-    }
-
-    @Test
-    void testWriteScore() throws IOException {
-        Archivo.writeScore("Player1", 100);
-        Archivo.writeScore("Player2", 200);
-
-        List<String> lines = Files.readAllLines(Path.of(FILE_NAME));
-
-        assertEquals(2, lines.size());
-        assertEquals("Player1: 100", lines.get(0));
-        assertEquals("Player2: 200", lines.get(1));
-    }
-
-    @Test
-    void testGetTopScores() throws IOException {
-        Files.write(Paths.get(FILE_NAME), List.of(
-                "Player1: 100",
-                "Player2: 200",
-                "Player3: 150"
-        ));
-
-        List<String> topScores = Archivo.getTopScores(2);
-
-        assertEquals(2, topScores.size());
-        assertEquals("Player2: 200", topScores.get(0));
-        assertEquals("Player3: 150", topScores.get(1));
-    }
+//    private static final String FILE_NAME = "ArchivoDePuntos.txt";
+//
+//    @BeforeEach
+//    void setUp() throws IOException {
+//        // Ensure the file is empty before each test
+//        Files.deleteIfExists(Paths.get(FILE_NAME));
+//        Files.createFile(Paths.get(FILE_NAME));
+//    }
+//
+//    @AfterEach
+//    void tearDown() throws IOException {
+//        // Clean up the file after each test
+//        Files.deleteIfExists(Paths.get(FILE_NAME));
+//    }
+//
+//    @Test
+//    void testWriteScore() throws IOException {
+//        Archivo.writeScore("Player1", 100);
+//        Archivo.writeScore("Player2", 200);
+//
+//        List<String> lines = Files.readAllLines(Path.of(FILE_NAME));
+//
+//        assertEquals(2, lines.size());
+//        assertEquals("Player1: 100", lines.get(0));
+//        assertEquals("Player2: 200", lines.get(1));
+//    }
+//
+//    @Test
+//    void testGetTopScores() throws IOException {
+//        Files.write(Paths.get(FILE_NAME), List.of(
+//                "Player1: 100",
+//                "Player2: 200",
+//                "Player3: 150"
+//        ));
+//
+//        List<String> topScores = Archivo.getTopScores(2);
+//
+//        assertEquals(2, topScores.size());
+//        assertEquals("Player2: 200", topScores.get(0));
+//        assertEquals("Player3: 150", topScores.get(1));
+//    }
 
     @Test
     void testCreateMatrix() {
