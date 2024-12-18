@@ -51,6 +51,7 @@ public class Config {
      */
     public static Integer score = 0;
 
+
     /**
      * @brief Número de intentos realizados por el jugador.
      */
