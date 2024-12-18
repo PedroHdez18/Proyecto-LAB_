@@ -24,7 +24,7 @@ public class Config {
     /**
      * @brief Tamaño de un cuadrado en la cuadrícula del juego.
      */
-    public static final Integer squareSize = 40;
+    public static Integer squareSize = 40;
 
     /**
      * @brief Coordenada X que representa tres cuartos del ancho del juego.

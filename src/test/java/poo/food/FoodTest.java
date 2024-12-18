@@ -1,6 +1,8 @@
 package poo.food;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import javafx.beans.value.ObservableBooleanValue;
 import org.junit.jupiter.api.Test;
 import poo.config.Config;
 

@@ -1,3 +1,4 @@
+
 package poo.snake;
 
 import poo.canvas_utils_square.CanvasUtilsSquares;
