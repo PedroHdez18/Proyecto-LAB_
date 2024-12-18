@@ -62,16 +62,16 @@ public class ScenarioTest extends ApplicationTest {
 //        assertTrue(gameStarted);
 //    }
 
-    // Inner classes for test purposes
-    private class TestSnake extends Snake {
-        // Implement necessary methods for testing
-    }
-
-    private class TestApple extends Apple {
-        // Implement necessary methods for testing
-    }
-
-    private class TestPineapple extends Pineapple {
-        // Implement necessary methods for testing
-    }
+//    // Inner classes for test purposes
+//    private class TestSnake extends Snake {
+//        // Implement necessary methods for testing
+//    }
+//
+//    private class TestApple extends Apple {
+//        // Implement necessary methods for testing
+//    }
+//
+//    private class TestPineapple extends Pineapple {
+//        // Implement necessary methods for testing
+//    }
 }
