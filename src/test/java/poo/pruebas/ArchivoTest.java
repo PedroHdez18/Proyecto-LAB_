@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ArchivoTest {
 
-    private static final String FILE_NAME = "ArchivoDePuntos.txt";
+    private static final String FILE_NAME = "ArchivoDePruebas.txt";
 
     @BeforeEach
     void setUp() throws IOException {
@@ -33,8 +33,8 @@ class ArchivoTest {
 
     @Test
     void testWriteScore() throws IOException {
-        Archivo.writeScore("Player1", 100);
-        Archivo.writeScore("Player2", 200);
+        Archivo.writeScoreTest("Player1", 100);
+        Archivo.writeScoreTest("Player2", 200);
 
         List<String> lines = Files.readAllLines(Path.of(FILE_NAME));
 
@@ -51,7 +51,7 @@ class ArchivoTest {
                 "Player3: 150"
         ));
 
-        List<String> topScores = Archivo.getTopScores(2);
+        List<String> topScores = Archivo.getTopScoresTest(2);
 
         assertEquals(2, topScores.size());
         assertEquals("Player2: 200", topScores.get(0));
