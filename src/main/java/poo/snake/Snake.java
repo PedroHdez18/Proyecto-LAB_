@@ -1,3 +1,4 @@
+
 package poo.snake;
 
 import poo.canvas_utils_square.CanvasUtilsSquares;
@@ -62,8 +63,8 @@ public class Snake {
      */
     public void setHeadOnCenter() {
         // Estableciendo la posición de la cabeza en el centro de la escena
-        this.head.setTranslateX(Config.width / 2 - Config.squareSize);
-        this.head.setTranslateY(Config.height / 2 - Config.squareSize);
+        this.head.setTranslateX((double) Config.width / 2 - Config.squareSize);
+        this.head.setTranslateY((double) Config.height / 2 - Config.squareSize);
     }
 
     /**
@@ -73,7 +74,7 @@ public class Snake {
         this.head = CanvasUtilsSquares.buildingSquare(Color.TRANSPARENT); // Crea un canvas transparente
         GraphicsContext gc = this.head.getGraphicsContext2D(); // Obtiene el contexto gráfico 2D
         gc.setFill(Color.GREEN); // Establece el color de relleno como verde
-        double radius = Config.squareSize / 2; // Calcula el radio del círculo
+        double radius = (double) Config.squareSize / 2; // Calcula el radio del círculo
         gc.fillOval(0, 0, radius * 2, radius * 2); // Dibuja un círculo en la posición (0, 0) con el radio calculado
         this.setHeadOnCenter(); // Establece la posición de la cabeza en el centro
     }
@@ -173,7 +174,7 @@ public class Snake {
         GraphicsContext gc = getHead().getGraphicsContext2D();
         gc.clearRect(0, 0, Config.squareSize, Config.squareSize); // Limpia el Canvas
         gc.setFill(color); // Rellena el círculo con el color especificado
-        double radius = Config.squareSize / 2; // Calcula el radio del círculo
+        double radius = (double) Config.squareSize / 2; // Calcula el radio del círculo
         gc.fillOval(0, 0, radius * 2, radius * 2); // Dibuja un círculo con el radio calculado
     }
 

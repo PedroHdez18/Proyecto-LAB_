@@ -3,6 +3,7 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with BOM">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/poo/food/apple/Apple.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/poo/key_event_loop/KeyEventLoop.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/poo/AppleTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/poo/canvas_utils_square/CanvasUtilsSquaresTest.java" charset="UTF-8" />
