@@ -61,7 +61,7 @@ mvn compile javafx:run
 Este proyecto fue desarrollado utilizando el editor de código Visual Studio Code (VSCode), pero puede ejecutarse en cualquier IDE Java compatible con Maven.
 
 
-## SonarQube :
+## SonarCloud :
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=PedroHdez18_Proyecto-LAB_&metric=alert_status)]
     (https://sonarcloud.io/summary/new_code?id=PedroHdez18_Proyecto-LAB_&branch=main)
