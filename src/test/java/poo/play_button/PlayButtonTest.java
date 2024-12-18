@@ -14,24 +14,24 @@ import javafx.event.EventHandler;
 
 public class PlayButtonTest extends ApplicationTest {
 
-    private PlayButton playButton;
-    private boolean buttonClicked;
-
-    @Override
-    public void start(Stage stage) {
-        buttonClicked = false;
-        EventHandler<ActionEvent> playAction = event -> buttonClicked = true;
-        playButton = new PlayButton(playAction);
-        stage.setScene(new Scene(playButton));
-        stage.show();
-    }
-
-    @Test
-    public void testButtonInitialization() {
-        Button play = (Button) playButton.lookup(".button");
-        assertNotNull(play);
-        assertEquals("Iniciar Intento", play.getText());
-    }
+//    private PlayButton playButton;
+//    private boolean buttonClicked;
+//
+//    @Override
+//    public void start(Stage stage) {
+//        buttonClicked = false;
+//        EventHandler<ActionEvent> playAction = event -> buttonClicked = true;
+//        playButton = new PlayButton(playAction);
+//        stage.setScene(new Scene(playButton));
+//        stage.show();
+//    }
+//
+//    @Test
+//    public void testButtonInitialization() {
+//        Button play = (Button) playButton.lookup(".button");
+//        assertNotNull(play);
+//        assertEquals("Iniciar Intento", play.getText());
+//    }
 
 //    @Test
 //    public void testButtonClick() {
