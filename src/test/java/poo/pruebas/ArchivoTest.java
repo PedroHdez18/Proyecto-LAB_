@@ -42,21 +42,21 @@ class ArchivoTest {
         assertEquals("Player1: 100", lines.get(0));
         assertEquals("Player2: 200", lines.get(1));
     }
-//
-//    @Test
-//    void testGetTopScores() throws IOException {
-//        Files.write(Paths.get(FILE_NAME), List.of(
-//                "Player1: 100",
-//                "Player2: 200",
-//                "Player3: 150"
-//        ));
-//
-//        List<String> topScores = Archivo.getTopScores(2);
-//
-//        assertEquals(2, topScores.size());
-//        assertEquals("Player2: 200", topScores.get(0));
-//        assertEquals("Player3: 150", topScores.get(1));
-//    }
+
+    @Test
+    void testGetTopScores() throws IOException {
+        Files.write(Paths.get(FILE_NAME), List.of(
+                "Player1: 100",
+                "Player2: 200",
+                "Player3: 150"
+        ));
+
+        List<String> topScores = Archivo.getTopScores(2);
+
+        assertEquals(2, topScores.size());
+        assertEquals("Player2: 200", topScores.get(0));
+        assertEquals("Player3: 150", topScores.get(1));
+    }
 
     @Test
     void testCreateMatrix() {
