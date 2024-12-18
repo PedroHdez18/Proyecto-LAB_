@@ -22,51 +22,51 @@ import java.util.concurrent.TimeUnit;
 
 public class TryAgainButtonTest extends ApplicationTest {
 
-//    private TryAgainButton tryAgainButton;
-//    private boolean buttonClicked;
-//
-//    @Override
-//    public void start(Stage stage) {
-//        // Initialize TryAgainButton with a test action
-//        EventHandler<ActionEvent> buttonAction = event -> buttonClicked = true;
-//        tryAgainButton = new TryAgainButton(buttonAction);
-//        StackPane root = new StackPane(tryAgainButton);
-//        stage.setScene(new Scene(root));
-//        stage.show();
-//    }
-//
-//    @BeforeEach
-//    public void setUp() {
-//        buttonClicked = false;
-//    }
-//
-//    @Test
-//    public void testButtonAction() throws InterruptedException {
-//        CountDownLatch latch = new CountDownLatch(1);
-//        Platform.runLater(() -> {
-//            Button button = (Button) tryAgainButton.lookup(".button");
-//            assertNotNull(button);
-//            button.fire();
-//            assertTrue(buttonClicked);
-//            latch.countDown();
-//        });
-//        latch.await(5, TimeUnit.SECONDS);
-//    }
-//
-//    @Test
-//    public void testScoreDisplay() throws InterruptedException {
-//        CountDownLatch latch = new CountDownLatch(1);
-//        Platform.runLater(() -> {
-//            Config.score = 100;
-//            tryAgainButton = new TryAgainButton(event -> {});
-//            StackPane root = new StackPane(tryAgainButton);
-//            root.getChildren().add(new Label("Puntuacion: " + Config.score));
-//            assertNotNull(root);
-//            assertTrue(root.getChildren().stream()
-//                    .anyMatch(node -> node instanceof Label &&
-//                            ((Label) node).getText().contains("Puntuacion: 100")));
-//            latch.countDown();
-//        });
-//        latch.await(5, TimeUnit.SECONDS);
-//    }
+    private TryAgainButton tryAgainButton;
+    private boolean buttonClicked;
+
+    @Override
+    public void start(Stage stage) {
+        // Initialize TryAgainButton with a test action
+        EventHandler<ActionEvent> buttonAction = event -> buttonClicked = true;
+        tryAgainButton = new TryAgainButton(buttonAction);
+        StackPane root = new StackPane(tryAgainButton);
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @BeforeEach
+    public void setUp() {
+        buttonClicked = false;
+    }
+
+    @Test
+    public void testButtonAction() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            Button button = (Button) tryAgainButton.lookup(".button");
+            assertNotNull(button);
+            button.fire();
+            assertTrue(buttonClicked);
+            latch.countDown();
+        });
+        latch.await(5, TimeUnit.SECONDS);
+    }
+
+    @Test
+    public void testScoreDisplay() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            Config.score = 100;
+            tryAgainButton = new TryAgainButton(event -> {});
+            StackPane root = new StackPane(tryAgainButton);
+            root.getChildren().add(new Label("Puntuacion: " + Config.score));
+            assertNotNull(root);
+            assertTrue(root.getChildren().stream()
+                    .anyMatch(node -> node instanceof Label &&
+                            ((Label) node).getText().contains("Puntuacion: 100")));
+            latch.countDown();
+        });
+        latch.await(5, TimeUnit.SECONDS);
+    }
 }
