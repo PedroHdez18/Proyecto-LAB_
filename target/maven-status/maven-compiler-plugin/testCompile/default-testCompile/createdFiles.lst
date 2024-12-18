@@ -1,6 +1,5 @@
 poo\scenario\ScenarioTest$TestSnake.class
 poo\play_button\PlayButtonTest.class
-poo\food\FoodTest$ConcreteFood.class
 poo\key_event_loop\KeyEventLoopTest$TestScenario.class
 poo\scenario\ScenarioTest$TestPineapple.class
 poo\scenario\ScenarioTest$TestApple.class
