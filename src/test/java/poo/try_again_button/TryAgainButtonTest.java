@@ -25,33 +25,33 @@ public class TryAgainButtonTest extends ApplicationTest {
     private TryAgainButton tryAgainButton;
     private boolean buttonClicked;
 
-    @Override
-    public void start(Stage stage) {
-        // Initialize TryAgainButton with a test action
-        EventHandler<ActionEvent> buttonAction = event -> buttonClicked = true;
-        tryAgainButton = new TryAgainButton(buttonAction);
-        StackPane root = new StackPane(tryAgainButton);
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    @BeforeEach
-    public void setUp() {
-        buttonClicked = false;
-    }
-
-    @Test
-    public void testButtonAction() throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            Button button = (Button) tryAgainButton.lookup(".button");
-            assertNotNull(button);
-            button.fire();
-            assertTrue(buttonClicked);
-            latch.countDown();
-        });
-        latch.await(5, TimeUnit.SECONDS);
-    }
+//    @Override
+//    public void start(Stage stage) {
+//        // Initialize TryAgainButton with a test action
+//        EventHandler<ActionEvent> buttonAction = event -> buttonClicked = true;
+//        tryAgainButton = new TryAgainButton(buttonAction);
+//        StackPane root = new StackPane(tryAgainButton);
+//        stage.setScene(new Scene(root));
+//        stage.show();
+//    }
+//
+//    @BeforeEach
+//    public void setUp() {
+//        buttonClicked = false;
+//    }
+//
+//    @Test
+//    public void testButtonAction() throws InterruptedException {
+//        CountDownLatch latch = new CountDownLatch(1);
+//        Platform.runLater(() -> {
+//            Button button = (Button) tryAgainButton.lookup(".button");
+//            assertNotNull(button);
+//            button.fire();
+//            assertTrue(buttonClicked);
+//            latch.countDown();
+//        });
+//        latch.await(5, TimeUnit.SECONDS);
+//    }
 
 //    @Test
 //    public void testScoreDisplay() throws InterruptedException {

@@ -41,4 +41,23 @@ public class Game extends Application {
         new Scenario(stage, snake, apple, pineapple);
     }
 
+    public int calculateScore(int[] points) {
+        int totalScore = 0;
+        for (int point : points) {
+            totalScore += point;
+        }
+        return totalScore;
+    }
+
+    public boolean isWinningScore(int score, int threshold) {
+        return score >= threshold;
+    }
+
+    public int[] reverseScores(int[] scores) {
+        int[] reversed = new int[scores.length];
+        for (int i = 0; i < scores.length; i++) {
+            reversed[i] = scores[scores.length - 1 - i];
+        }
+        return reversed;
+    }
 }

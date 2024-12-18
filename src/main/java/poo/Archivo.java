@@ -59,4 +59,35 @@ public class Archivo {
 
         return scores.size() > limit ? scores.subList(0, limit) : scores;
     }
+
+    public int[][] createMatrix(int rows, int cols, int value) {
+        int[][] matrix = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = value;
+            }
+        }
+        return matrix;
+    }
+
+    public int sumMatrix(int[][] matrix) {
+        int sum = 0;
+        for (int[] row : matrix) {
+            for (int val : row) {
+                sum += val;
+            }
+        }
+        return sum;
+    }
+
+    public String describeMatrix(int[][] matrix) {
+        StringBuilder sb = new StringBuilder();
+        for (int[] row : matrix) {
+            for (int val : row) {
+                sb.append(val).append(" ");
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }
