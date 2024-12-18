@@ -16,16 +16,16 @@ public class SnakeTest extends ApplicationTest {
 
     private Snake snake;
     private Stage stage;
-
-    @Override
-    public void start(Stage stage) {
-        this.stage = stage;
-    }
-
-    @BeforeEach
-    public void setUp() {
-        snake = new Snake();
-    }
+//
+//    @Override
+//    public void start(Stage stage) {
+//        this.stage = stage;
+//    }
+//
+//    @BeforeEach
+//    public void setUp() {
+//        snake = new Snake();
+//    }
 
     @Test
     public void testInitialHeadPosition() {
