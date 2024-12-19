@@ -3,10 +3,10 @@
 on:
   push:
     branches:
-      - main # Cambia si tu rama principal tiene otro nombre
+      - sonar_branch # Cambia si tu rama principal tiene otro nombre
   pull_request:
     branches:
-      - main
+      - sonar_branch
 
 jobs:
   sonarcloud:
