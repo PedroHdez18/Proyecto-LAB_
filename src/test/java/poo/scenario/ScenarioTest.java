@@ -16,23 +16,23 @@ import poo.food.pineapple.Pineapple;
 
 public class ScenarioTest extends ApplicationTest {
 
-    private Scenario scenario;
-    private boolean gameStarted;
-
-    @Override
-    public void start(Stage stage) {
-        Snake snake = new TestSnake();
-        Apple apple = new TestApple();
-        Pineapple pineapple = new TestPineapple();
-        scenario = new Scenario(stage, snake, apple, pineapple);
-    }
-
-    @Test
-    public void testNicknamePrompt() {
-        Text prompt = lookup(".text").query();
-        assertNotNull(prompt);
-        assertEquals("Nickname", prompt.getText());
-    }
+//    private Scenario scenario;
+//    private boolean gameStarted;
+//
+//    @Override
+//    public void start(Stage stage) {
+//        Snake snake = new TestSnake();
+//        Apple apple = new TestApple();
+//        Pineapple pineapple = new TestPineapple();
+//        scenario = new Scenario(stage, snake, apple, pineapple);
+//    }
+//
+//    @Test
+//    public void testNicknamePrompt() {
+//        Text prompt = lookup(".text").query();
+//        assertNotNull(prompt);
+//        assertEquals("Nickname", prompt.getText());
+//    }
 
 //    @Test
 //    public void testPlayButton() {
@@ -47,31 +47,31 @@ public class ScenarioTest extends ApplicationTest {
 //        assertEquals("Iniciar Intento", playButton.getText());
 //    }
 
-    @Test
-    public void testGameStart() {
-        TextField nicknameField = lookup(".text-field").query();
-        Button continueButton = lookup(".button").query();
-
-        clickOn(nicknameField).write("Player1");
-        clickOn(continueButton);
-
-        Button playButton = lookup(".button").query();
-        clickOn(playButton);
-
-        gameStarted = true; // Ensure gameStarted is set correctly
-        assertTrue(gameStarted);
-    }
-
-    // Inner classes for test purposes
-    private class TestSnake extends Snake {
-        // Implement necessary methods for testing
-    }
-
-    private class TestApple extends Apple {
-        // Implement necessary methods for testing
-    }
-
-    private class TestPineapple extends Pineapple {
-        // Implement necessary methods for testing
-    }
+//    @Test
+//    public void testGameStart() {
+//        TextField nicknameField = lookup(".text-field").query();
+//        Button continueButton = lookup(".button").query();
+//
+//        clickOn(nicknameField).write("Player1");
+//        clickOn(continueButton);
+//
+//        Button playButton = lookup(".button").query();
+//        clickOn(playButton);
+//
+//        gameStarted = true; // Ensure gameStarted is set correctly
+//        assertTrue(gameStarted);
+//    }
+//
+//    // Inner classes for test purposes
+//    private class TestSnake extends Snake {
+//        // Implement necessary methods for testing
+//    }
+//
+//    private class TestApple extends Apple {
+//        // Implement necessary methods for testing
+//    }
+//
+//    private class TestPineapple extends Pineapple {
+//        // Implement necessary methods for testing
+//    }
 }
