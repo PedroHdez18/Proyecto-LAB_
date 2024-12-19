@@ -1,5 +1,6 @@
 package poo.food;
 
+import java.security.SecureRandom;
 import poo.config.Config;
 
 /**
@@ -10,6 +11,9 @@ import poo.config.Config;
  * como el cálculo de posiciones aleatorias y la obtención de coordenadas.
  */
 public abstract class Food {
+
+    // Instancia de SecureRandom para garantizar la seguridad al generar números aleatorios
+    private static final SecureRandom secureRandom = new SecureRandom();
 
     /**
      * @brief Método abstracto para crear la representación gráfica de un alimento.
@@ -30,9 +34,14 @@ public abstract class Food {
      * @return Un número aleatorio ajustado al tamaño de la cuadrícula.
      */
     public Integer randomNumbers(Integer min, Integer max) {
-        int value = (int) (Math.random() * ((max - min) + 1)) + min;
+        if (min == null || max == null || min > max) {
+            throw new IllegalArgumentException("Los valores de min y max deben ser válidos.");
+        }
 
-        // Necesitamos obtener un valor que sea múltiplo de 40 para que se ajuste a la pantalla
+        // Generar un número aleatorio dentro del rango [min, max]
+        int value = secureRandom.nextInt((max - min) + 1) + min;
+
+        // Ajustar el valor para que sea múltiplo de Config.squareSize
         return value - (value % Config.squareSize);
     }
 
